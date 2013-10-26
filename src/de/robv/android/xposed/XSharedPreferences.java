@@ -196,8 +196,7 @@ public final class XSharedPreferences implements SharedPreferences {
     public boolean getBoolean(String key, boolean defValue) {
         synchronized (this) {
             awaitLoadedLocked();
-            Boolean v = (Boolean)mMap.get(key);
-            return v != null ? v : defValue;
+            return Boolean.valueOf(mMap.get(key));
         }
     }
 
